@@ -1,26 +1,486 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a2e;
+  --primary: #0d1b8e;
+  --primary-light: #1a2fa8;
+  --accent: #00a3ff;
+  --accent-light: #33b5ff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --font-sans: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+  /* 제목·본문 모두 Pretendard (사용자 선호). 위계는 굵기·크기로만. */
+  --font-display: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "Menlo", monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Twemoji — 시스템 이모지 대신 트위터 SVG 이모지 사용 */
+img.emoji {
+  height: 1.1em !important;
+  width: 1.1em !important;
+  max-width: 1.1em !important;
+  min-width: unset !important;
+  margin: 0 0.05em 0 0.05em !important;
+  vertical-align: -0.15em !important;
+  display: inline !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  aspect-ratio: unset !important;
+}
+
+/* Dark mode for admin */
+html.dark body { background: #0f1117; color: #e2e8f0; }
+html.dark .bg-white { background: #1e2432 !important; }
+html.dark .bg-gray-50 { background: #161b27 !important; }
+html.dark .bg-gray-100 { background: #252d3d !important; }
+html.dark .border-gray-100 { border-color: #2d3748 !important; }
+html.dark .border-gray-200 { border-color: #374151 !important; }
+html.dark .text-gray-800 { color: #e2e8f0 !important; }
+html.dark .text-gray-700 { color: #cbd5e0 !important; }
+html.dark .text-gray-600 { color: #a0aec0 !important; }
+html.dark .text-gray-500 { color: #718096 !important; }
+html.dark .text-gray-400 { color: #4a5568 !important; }
+html.dark .divide-gray-100 > * + * { border-color: #2d3748 !important; }
+html.dark .shadow-sm { box-shadow: 0 1px 3px rgba(0,0,0,.4) !important; }
+html.dark input, html.dark textarea, html.dark select {
+  background: #252d3d !important;
+  border-color: #374151 !important;
+  color: #e2e8f0 !important;
+}
+html.dark .hover\:bg-gray-50:hover { background: #252d3d !important; }
+
+/* ── Notification animations ───────────────────────────────── */
+@keyframes toast-in {
+  from { opacity: 0; transform: translateX(24px) scale(0.96); }
+  to   { opacity: 1; transform: translateX(0)    scale(1);    }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.92) translateY(8px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0);   }
+}
+
+@layer utilities {
+  .animate-toast-in { animation: toast-in  0.28s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .animate-fade-in  { animation: fade-in   0.18s ease both; }
+  .animate-scale-in { animation: scale-in  0.24s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+}
+
+/* TipTap Editor Styles */
+.ProseMirror {
+  outline: none;
+  min-height: 400px;
+  padding: 1rem;
+}
+
+.ProseMirror h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1rem 0 0.5rem;
+}
+
+.ProseMirror h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+}
+
+.ProseMirror h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0.75rem 0 0.5rem;
+}
+
+.ProseMirror p {
+  margin: 0.5rem 0;
+  line-height: 1.7;
+}
+
+.ProseMirror ul, .ProseMirror ol {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.ProseMirror ul { list-style-type: disc; }
+.ProseMirror ol { list-style-type: decimal; }
+
+.ProseMirror blockquote {
+  border-left: 4px solid #0d1b8e;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: #555;
+  font-style: italic;
+}
+
+.ProseMirror a {
+  color: #00a3ff;
+  text-decoration: underline;
+}
+
+.ProseMirror img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.ProseMirror code {
+  background: #f0f4ff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
+.ProseMirror pre {
+  background: #1a1a2e;
+  color: #e0e0ff;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.ProseMirror .is-editor-empty:first-child::before {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Table styles */
+.ProseMirror table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+.ProseMirror th {
+  background: #f8faff;
+  border: 1px solid #d1d5db;
+  padding: 8px 12px;
+  font-weight: 600;
+  text-align: left;
+  font-size: 0.875rem;
+}
+.ProseMirror td {
+  border: 1px solid #e5e7eb;
+  padding: 8px 12px;
+  font-size: 0.875rem;
+}
+.ProseMirror .selectedCell::after {
+  background: rgba(13, 27, 142, 0.08);
+  content: "";
+  left: 0; right: 0; top: 0; bottom: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
+}
+.ProseMirror .column-resize-handle {
+  background: #0d1b8e;
+  bottom: -2px;
+  pointer-events: none;
+  position: absolute;
+  right: -2px;
+  top: 0;
+  width: 4px;
+}
+.tableWrapper { overflow-x: auto; }
+
+/* Task list styles */
+.ProseMirror ul[data-type="taskList"] {
+  list-style: none;
+  padding: 0;
+}
+.ProseMirror ul[data-type="taskList"] li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 4px 0;
+}
+.ProseMirror ul[data-type="taskList"] li label {
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.ProseMirror ul[data-type="taskList"] li input[type="checkbox"] {
+  accent-color: #0d1b8e;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+.ProseMirror ul[data-type="taskList"] li > div {
+  flex: 1;
+}
+
+/* Code block syntax highlighting */
+.ProseMirror pre {
+  background: #1e2432;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin: 1rem 0;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+.ProseMirror pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+  color: #e2e8f0;
+  font-family: "JetBrains Mono", "Fira Code", "Menlo", monospace;
+}
+/* lowlight token colors */
+.hljs-comment, .hljs-quote      { color: #8899aa; font-style: italic; }
+.hljs-keyword, .hljs-selector-tag, .hljs-addition { color: #c678dd; }
+.hljs-number, .hljs-string, .hljs-meta .hljs-meta-string,
+.hljs-literal, .hljs-doctag, .hljs-regexp { color: #98c379; }
+.hljs-title, .hljs-section, .hljs-name, .hljs-selector-id,
+.hljs-selector-class { color: #61afef; }
+.hljs-attribute, .hljs-attr, .hljs-variable, .hljs-template-variable,
+.hljs-class .hljs-title, .hljs-type { color: #e5c07b; }
+.hljs-symbol, .hljs-bullet, .hljs-subst, .hljs-meta,
+.hljs-selector-attr, .hljs-selector-pseudo, .hljs-link { color: #56b6c2; }
+.hljs-built_in, .hljs-deletion { color: #e06c75; }
+.hljs-formula { font-style: italic; }
+.hljs-emphasis { font-style: italic; }
+.hljs-strong  { font-weight: bold; }
+
+/* 핵심만 먼저 보면 — AI 생성 뉴스레터 요약 박스 */
+.nl-summary {
+  background: #f8f9ff !important;
+  border-left: 4px solid #0d1b8e !important;
+  border-radius: 0 8px 8px 0 !important;
+  padding: 20px 24px !important;
+  margin: 24px 0 !important;
+}
+.nl-summary > p {
+  margin: 0 0 10px !important;
+  padding-bottom: 10px !important;
+  border-bottom: 1px solid #dde3f5 !important;
+  color: #1e293b !important;
+  font-size: 15px !important;
+  line-height: 1.85 !important;
+}
+.nl-summary > p:first-child {
+  color: #0d1b8e !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  margin-bottom: 14px !important;
+  padding-bottom: 0 !important;
+  border-bottom: none !important;
+}
+.nl-summary > p:last-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  border-bottom: none !important;
+}
+
+/* ── 홈 페이지 배경 — 오프화이트 + 상단 네이비 헤일로(깊이감) ── */
+.page-bg {
+  background:
+    radial-gradient(900px 380px at 50% -150px, rgba(13, 27, 142, 0.07), rgba(13, 27, 142, 0) 70%),
+    #f6f7f9;
+}
+html.dark .page-bg {
+  background:
+    radial-gradient(900px 380px at 50% -150px, rgba(59, 130, 246, 0.10), rgba(59, 130, 246, 0) 70%),
+    #0f1117;
+}
+
+/* ── 홈 진입 스태거 등장 (트렌디 로드 리빌) ── */
+@keyframes ddRise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── 히어로 슬라이더 스토리식 진행바 채워짐 ── */
+@keyframes heroProg {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+/* ── AI 버튼 반짝임(스파클) — tsparticles 없이 CSS-only ── */
+@keyframes sparkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.7); }
+  50%      { opacity: 1;    transform: scale(1.1); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .animate-sparkle { animation: sparkle 1.8s ease-in-out infinite; }
+}
+
+/* ── 라우트 진입 전환 (기사 페이지 등장: 살짝 떠오르며 페이드) ── */
+@media (prefers-reduced-motion: no-preference) {
+  .route-enter { animation: ddRise 0.4s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+}
+
+/* ── 어드민 대시보드 진입 스태거 등장 ── */
+@media (prefers-reduced-motion: no-preference) {
+  .admin-stage > * { animation: ddRise 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+  .admin-stage > *:nth-child(1) { animation-delay: 0.04s; }
+  .admin-stage > *:nth-child(2) { animation-delay: 0.10s; }
+  .admin-stage > *:nth-child(3) { animation-delay: 0.16s; }
+  .admin-stage > *:nth-child(n+4) { animation-delay: 0.22s; }
+}
+/* 스크롤 등장: 기본은 숨김, 화면에 들어오면 .reveal-in 으로 떠오름 (JS IntersectionObserver) */
+@media (prefers-reduced-motion: no-preference) {
+  .home-stage > * { opacity: 0; transform: translateY(18px); }
+  .home-stage > *.reveal-in { animation: ddRise 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+  .home-stage > *:nth-child(1) { animation-delay: 0.03s; }
+  .home-stage > *:nth-child(2) { animation-delay: 0.09s; }
+  .home-stage > *:nth-child(3) { animation-delay: 0.15s; }
+  .home-stage > *:nth-child(4) { animation-delay: 0.21s; }
+  .home-stage > *:nth-child(n+5) { animation-delay: 0.27s; }
+}
+
+/* ── 프리미엄 디테일: 미세 그레인 텍스처(전역) ── */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+html.dark body::after { opacity: 0.05; }
+
+/* ── 프리미엄 디테일: 선택 색 · 스크롤바 · 포커스 링 ── */
+::selection { background: #0d1b8e; color: #fff; }
+html.dark ::selection { background: #3b82f6; color: #fff; }
+
+html { scrollbar-width: thin; scrollbar-color: rgba(13, 27, 142, 0.3) transparent; }
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(13, 27, 142, 0.25);
+  border-radius: 9999px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(13, 27, 142, 0.45); background-clip: padding-box; }
+html.dark ::-webkit-scrollbar-thumb { background: rgba(96, 165, 250, 0.3); background-clip: padding-box; }
+
+:focus-visible { outline: 2px solid #0d1b8e; outline-offset: 2px; border-radius: 6px; }
+html.dark :focus-visible { outline-color: #60a5fa; }
+
+/* ── 스크롤 형광펜 하이라이터 — <mark> 태그 전용 ── */
+mark {
+  background: linear-gradient(#AAFF00, #AAFF00) no-repeat left center / 0% 100%;
+  transition: background-size 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.4s, font-weight 0s;
+  padding: 2px 5px;
+  border-radius: 3px;
+  color: inherit;
+}
+mark.in-view {
+  background-size: 100% 100%;
+  color: #111 !important;
+  font-weight: 700 !important;
+}
+
+/* ── 구독하기 버튼 — Uiverse 스타일 애니메이션 ────────────── */
+.subscribe-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 22px;
+  border: 2px solid transparent;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  color: #0d1b8e;
+  background-color: transparent;
+  border-radius: 100px;
+  box-shadow: 0 0 0 2px #0d1b8e;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.subscribe-btn svg {
+  position: absolute;
+  width: 14px !important;
+  height: 14px !important;
+  flex-shrink: 0;
+  fill: #0d1b8e;
+  z-index: 9;
+  pointer-events: none;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.subscribe-btn .arr-1 { right: 12px; }
+.subscribe-btn .arr-2 { left: -25%; }
+.subscribe-btn .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background-color: #0d1b8e;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.subscribe-btn .btn-text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-8px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.subscribe-btn:hover {
+  box-shadow: 0 0 0 8px transparent;
+  color: #ffffff;
+  border-radius: 12px;
+}
+.subscribe-btn:hover .arr-1 { right: -25%; }
+.subscribe-btn:hover .arr-2 { left: 12px; }
+.subscribe-btn:hover .btn-text { transform: translateX(8px); }
+.subscribe-btn:hover svg { fill: #ffffff; }
+.subscribe-btn:hover .circle {
+  width: 240px;
+  height: 240px;
+  opacity: 1;
+}
+.subscribe-btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 0 0 4px #0d1b8e;
+}
+html.dark .subscribe-btn {
+  color: #93c5fd;
+  box-shadow: 0 0 0 2px #4263eb;
+}
+html.dark .subscribe-btn svg { fill: #93c5fd; }
+html.dark .subscribe-btn .circle { background-color: #4263eb; }
+html.dark .subscribe-btn:hover { color: #ffffff; }
+html.dark .subscribe-btn:hover svg { fill: #ffffff; }
+
+/* Tippy slash command — remove default arrow & padding */
+.tippy-box[data-theme~="slash-command"] {
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+.tippy-box[data-theme~="slash-command"] > .tippy-content {
+  padding: 0;
 }

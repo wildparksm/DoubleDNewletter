@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>대덕.it 관리자 — 시안 v2 (프리미엄)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<style>
+  body { font-family: 'Pretendard Variable', system-ui, sans-serif; }
+  .glass { backdrop-filter: blur(20px); }
+  .hero-grad { background: linear-gradient(135deg, #667eea 0%, #764ba2 35%, #f093fb 100%); }
+  .hero-grad-2 { background: linear-gradient(135deg, #0d1b8e 0%, #4f46e5 50%, #7c3aed 100%); }
+  .text-shadow-sm { text-shadow: 0 1px 2px rgba(0,0,0,.1); }
+  .pattern-dot { background-image: radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px); background-size: 16px 16px; }
+</style>
+</head>
+<body class="bg-[#f4f5fa] min-h-screen">
+
+<div class="flex min-h-screen">
+
+  <!-- 사이드바 (기존 그대로 가정, 간략 표시) -->
+  <aside class="w-64 bg-white border-r border-gray-200 fixed inset-y-0 left-0 flex flex-col">
+    <div class="px-6 py-5 border-b border-gray-100">
+      <span class="font-black text-lg"><span class="text-gray-900">대덕</span><span class="text-[#0d1b8e]">.it</span> <span class="text-[10px] font-semibold text-gray-400 ml-1">관리자</span></span>
+    </div>
+    <div class="px-6 py-5 border-b border-gray-100 flex flex-col items-center text-center">
+      <div class="w-14 h-14 rounded-full bg-gradient-to-br from-[#0d1b8e] to-[#7c3aed] flex items-center justify-center text-white font-bold text-lg mb-3">관</div>
+      <div class="font-semibold text-gray-800 text-sm">관리자</div>
+      <div class="text-xs text-gray-400 mt-0.5">관리자</div>
+    </div>
+    <nav class="flex-1 px-3 py-4 space-y-1">
+      <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-gradient-to-r from-[#0d1b8e]/10 to-[#7c3aed]/10 text-[#0d1b8e] font-semibold text-sm"><span>📊</span>대시보드</a>
+      <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-500 text-sm"><span>📰</span>뉴스레터</a>
+      <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-500 text-sm"><span>📚</span>컬렉션</a>
+      <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-500 text-sm"><span>📡</span>RSS 수신함<span class="ml-auto bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">12</span></a>
+      <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-500 text-sm"><span>👥</span>구독자</a>
+    </nav>
+  </aside>
+
+  <!-- 메인 -->
+  <main class="flex-1 ml-64 p-8 space-y-6">
+
+    <!-- 상단 헤더 -->
+    <div class="flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-gray-800">대시보드</h1>
+        <p class="text-sm text-gray-400 mt-1">안녕하세요, 관리자님 👋 오늘도 좋은 콘텐츠 부탁드려요.</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="relative">
+          <input class="bg-white border border-gray-200 rounded-xl pl-9 pr-4 py-2.5 text-sm w-64 focus:outline-none" placeholder="검색..." />
+          <span class="absolute left-3 top-3 text-gray-400 text-sm">🔍</span>
+        </div>
+        <button class="bg-gradient-to-r from-[#0d1b8e] to-[#7c3aed] text-white px-5 py-2.5 rounded-xl font-semibold text-sm shadow-lg shadow-purple-500/20">+ 새 뉴스레터</button>
+      </div>
+    </div>
+
+    <!-- 1행: 히어로 카드 + 핵심 KPI 도넛 그룹 -->
+    <div class="grid grid-cols-12 gap-6">
+
+      <!-- 히어로 그라데이션 카드 (4열) -->
+      <div class="col-span-12 lg:col-span-4 hero-grad-2 rounded-2xl p-6 text-white relative overflow-hidden shadow-xl shadow-indigo-500/20">
+        <div class="absolute inset-0 pattern-dot opacity-50"></div>
+        <div class="relative">
+          <div class="flex items-center justify-between mb-6">
+            <span class="text-[11px] uppercase tracking-widest font-bold opacity-70">이번 달 베스트</span>
+            <span class="text-[10px] bg-white/15 px-2 py-1 rounded-full">🔥 HOT</span>
+          </div>
+          <p class="text-xs opacity-80 mb-1">최고 열람률</p>
+          <h3 class="text-xl font-bold mb-4 leading-snug">Claude 4.7 출시, 코딩 성능 대폭 향상</h3>
+
+          <div class="grid grid-cols-2 gap-4 mb-5">
+            <div>
+              <p class="text-[10px] opacity-70 uppercase tracking-wider">발송</p>
+              <p class="text-2xl font-bold mt-1">128<span class="text-sm opacity-70 ml-1">명</span></p>
+            </div>
+            <div>
+              <p class="text-[10px] opacity-70 uppercase tracking-wider">열람률</p>
+              <p class="text-2xl font-bold mt-1">94<span class="text-sm opacity-70 ml-1">%</span></p>
+            </div>
+          </div>
+
+          <button class="w-full bg-white/15 hover:bg-white/25 text-white text-xs font-semibold py-2.5 rounded-xl backdrop-blur-sm transition-colors">상세 분석 보기 →</button>
+        </div>
+      </div>
+
+      <!-- 핵심 KPI 도넛 3개 (8열) -->
+      <div class="col-span-12 lg:col-span-8 bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <h2 class="font-bold text-gray-800">핵심 지표</h2>
+            <p class="text-xs text-gray-400 mt-0.5">이번 달 누적 기준</p>
+          </div>
+          <select class="text-xs border border-gray-200 rounded-lg px-3 py-1.5 bg-white">
+            <option>이번 달</option><option>지난 달</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-3 gap-6">
+          <!-- 도넛 1 -->
+          <div class="text-center">
+            <div class="relative w-28 h-28 mx-auto">
+              <svg viewBox="0 0 36 36" class="w-28 h-28 -rotate-90">
+                <circle cx="18" cy="18" r="15.5" fill="none" stroke="#f3f4f6" stroke-width="3" />
+                <circle cx="18" cy="18" r="15.5" fill="none" stroke="url(#g1)" stroke-width="3" stroke-dasharray="74 100" stroke-linecap="round" />
+                <defs><linearGradient id="g1"><stop offset="0%" stop-color="#fb7185" /><stop offset="100%" stop-color="#f97316" /></linearGradient></defs>
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <span class="text-xl font-bold text-gray-800">74<span class="text-xs">%</span></span>
+              </div>
+            </div>
+            <p class="text-xs font-semibold text-gray-600 mt-3">발송 성공률</p>
+            <p class="text-[10px] text-gray-400 mt-0.5">3,892건 / 5,260건</p>
+          </div>
+
+          <!-- 도넛 2 -->
+          <div class="text-center">
+            <div class="relative w-28 h-28 mx-auto">
+              <svg viewBox="0 0 36 36" class="w-28 h-28 -rotate-90">
+                <circle cx="18" cy="18" r="15.5" fill="none" stroke="#f3f4f6" stroke-width="3" />
+                <circle cx="18" cy="18" r="15.5" fill="none" stroke="url(#g2)" stroke-width="3" stroke-dasharray="68 100" stroke-linecap="round" />
+                <defs><linearGradient id="g2"><stop offset="0%" stop-color="#a78bfa" /><stop offset="100%" stop-color="#7c3aed" /></linearGradient></defs>
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <span class="text-xl font-bold text-gray-800">68<span class="text-xs">%</span></span>
+              </div>
+            </div>
+            <p class="text-xs font-semibold text-gray-600 mt-3">평균 열람률</p>
+            <p class="text-[10px] text-gray-400 mt-0.5">업계 평균 23%</p>
+          </div>
+
+          <!-- 도넛 3 -->
+          <div class="text-center">
+            <div class="relative w-28 h-28 mx-auto">
+              <svg viewBox="0 0 36 36" class="w-28 h-28 -rotate-90">
+                <circle cx="18" cy="18" r="15.5" fill="none" stroke="#f3f4f6" stroke-width="3" />
+                <circle cx="18" cy="18" r="15.5" fill="none" stroke="url(#g3)" stroke-width="3" stroke-dasharray="32 100" stroke-linecap="round" />
+                <defs><linearGradient id="g3"><stop offset="0%" stop-color="#06b6d4" /><stop offset="100%" stop-color="#3b82f6" /></linearGradient></defs>
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <span class="text-xl font-bold text-gray-800">32<span class="text-xs">%</span></span>
+              </div>
+            </div>
+            <p class="text-xs font-semibold text-gray-600 mt-3">클릭률 (CTR)</p>
+            <p class="text-[10px] text-gray-400 mt-0.5">전월 대비 +5%p</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2행: stat 카드 4개 with mini sparkline -->
+    <div class="grid grid-cols-12 gap-6">
+      <!-- 카드 1 -->
+      <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+        <div class="flex items-start justify-between mb-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center text-base">📰</div>
+          <span class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-1 rounded-md">+12%</span>
+        </div>
+        <p class="text-xs font-medium text-gray-400">전체 뉴스레터</p>
+        <p class="text-2xl font-bold text-gray-900 mt-1">42</p>
+        <svg viewBox="0 0 100 30" class="w-full h-8 mt-2">
+          <defs><linearGradient id="sg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/><stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/></linearGradient></defs>
+          <path d="M0,25 L15,20 L30,22 L45,15 L60,17 L75,8 L100,12 L100,30 L0,30 Z" fill="url(#sg1)" />
+          <path d="M0,25 L15,20 L30,22 L45,15 L60,17 L75,8 L100,12" fill="none" stroke="#3b82f6" stroke-width="1.5" />
+        </svg>
+      </div>
+
+      <!-- 카드 2 -->
+      <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+        <div class="flex items-start justify-between mb-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-100 to-purple-50 flex items-center justify-center text-base">👥</div>
+          <span class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-1 rounded-md">+8%</span>
+        </div>
+        <p class="text-xs font-medium text-gray-400">활성 구독자</p>
+        <p class="text-2xl font-bold text-gray-900 mt-1">128</p>
+        <svg viewBox="0 0 100 30" class="w-full h-8 mt-2">
+          <defs><linearGradient id="sg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a78bfa" stop-opacity="0.3"/><stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/></linearGradient></defs>
+          <path d="M0,22 L15,24 L30,20 L45,18 L60,14 L75,12 L100,7 L100,30 L0,30 Z" fill="url(#sg2)" />
+          <path d="M0,22 L15,24 L30,20 L45,18 L60,14 L75,12 L100,7" fill="none" stroke="#a78bfa" stroke-width="1.5" />
+        </svg>
+      </div>
+
+      <!-- 카드 3 -->
+      <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+        <div class="flex items-start justify-between mb-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-100 to-orange-50 flex items-center justify-center text-base">📤</div>
+          <span class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-1 rounded-md">+24%</span>
+        </div>
+        <p class="text-xs font-medium text-gray-400">누적 발송</p>
+        <p class="text-2xl font-bold text-gray-900 mt-1">5,420</p>
+        <svg viewBox="0 0 100 30" class="w-full h-8 mt-2">
+          <defs><linearGradient id="sg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fb923c" stop-opacity="0.3"/><stop offset="100%" stop-color="#fb923c" stop-opacity="0"/></linearGradient></defs>
+          <path d="M0,28 L15,22 L30,24 L45,16 L60,18 L75,10 L100,5 L100,30 L0,30 Z" fill="url(#sg3)" />
+          <path d="M0,28 L15,22 L30,24 L45,16 L60,18 L75,10 L100,5" fill="none" stroke="#fb923c" stroke-width="1.5" />
+        </svg>
+      </div>
+
+      <!-- 카드 4 -->
+      <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+        <div class="flex items-start justify-between mb-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-100 to-pink-50 flex items-center justify-center text-base">💌</div>
+          <span class="text-[10px] font-bold text-red-500 bg-red-50 px-2 py-1 rounded-md">-2%</span>
+        </div>
+        <p class="text-xs font-medium text-gray-400">평균 열람률</p>
+        <p class="text-2xl font-bold text-gray-900 mt-1">71%</p>
+        <svg viewBox="0 0 100 30" class="w-full h-8 mt-2">
+          <defs><linearGradient id="sg4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fb7185" stop-opacity="0.3"/><stop offset="100%" stop-color="#fb7185" stop-opacity="0"/></linearGradient></defs>
+          <path d="M0,12 L15,15 L30,10 L45,16 L60,14 L75,18 L100,17 L100,30 L0,30 Z" fill="url(#sg4)" />
+          <path d="M0,12 L15,15 L30,10 L45,16 L60,14 L75,18 L100,17" fill="none" stroke="#fb7185" stroke-width="1.5" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- 3행: 큰 멀티 라인 영역 차트 -->
+    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h2 class="font-bold text-gray-800">발송 & 열람 추이</h2>
+          <p class="text-xs text-gray-400 mt-0.5">최근 6개월 데이터</p>
+        </div>
+        <div class="flex items-center gap-4 text-xs">
+          <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#0d1b8e]"></span><span class="text-gray-600">발송</span></div>
+          <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#a78bfa]"></span><span class="text-gray-600">열람</span></div>
+          <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#fb7185]"></span><span class="text-gray-600">클릭</span></div>
+          <div class="flex gap-1 ml-3">
+            <button class="text-xs px-3 py-1.5 rounded-lg text-gray-500 hover:bg-gray-50">월간</button>
+            <button class="text-xs px-3 py-1.5 rounded-lg bg-gray-100 text-gray-800 font-semibold">주간</button>
+            <button class="text-xs px-3 py-1.5 rounded-lg text-gray-500 hover:bg-gray-50">일간</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SVG 멀티 라인 영역 차트 -->
+      <div class="relative h-72">
+        <svg viewBox="0 0 600 240" class="w-full h-full" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="line-blue" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0d1b8e" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="#0d1b8e" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="line-purple" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="line-pink" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fb7185" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="#fb7185" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+
+          <!-- 그리드 -->
+          <line x1="0" y1="60" x2="600" y2="60" stroke="#f3f4f6" />
+          <line x1="0" y1="120" x2="600" y2="120" stroke="#f3f4f6" />
+          <line x1="0" y1="180" x2="600" y2="180" stroke="#f3f4f6" />
+
+          <!-- 발송 라인 (가장 두꺼움) -->
+          <path d="M0,170 C50,140 100,150 150,110 C200,90 250,100 300,70 C350,50 400,80 450,40 C500,30 550,50 600,30 L600,240 L0,240 Z" fill="url(#line-blue)" />
+          <path d="M0,170 C50,140 100,150 150,110 C200,90 250,100 300,70 C350,50 400,80 450,40 C500,30 550,50 600,30" fill="none" stroke="#0d1b8e" stroke-width="2.5" />
+
+          <!-- 열람 라인 -->
+          <path d="M0,190 C50,180 100,170 150,160 C200,150 250,170 300,140 C350,120 400,130 450,100 C500,80 550,90 600,70 L600,240 L0,240 Z" fill="url(#line-purple)" />
+          <path d="M0,190 C50,180 100,170 150,160 C200,150 250,170 300,140 C350,120 400,130 450,100 C500,80 550,90 600,70" fill="none" stroke="#a78bfa" stroke-width="2.5" />
+
+          <!-- 클릭 라인 -->
+          <path d="M0,210 C50,205 100,200 150,195 C200,185 250,200 300,180 C350,165 400,170 450,145 C500,130 550,135 600,120 L600,240 L0,240 Z" fill="url(#line-pink)" />
+          <path d="M0,210 C50,205 100,200 150,195 C200,185 250,200 300,180 C350,165 400,170 450,145 C500,130 550,135 600,120" fill="none" stroke="#fb7185" stroke-width="2.5" />
+
+          <!-- 데이터 포인트 -->
+          <circle cx="300" cy="70" r="5" fill="white" stroke="#0d1b8e" stroke-width="2.5"/>
+        </svg>
+
+        <!-- 플로팅 툴팁 (가운데 데이터 포인트) -->
+        <div class="absolute top-[10%] left-[48%] -translate-x-1/2 bg-gradient-to-r from-[#0d1b8e] to-[#7c3aed] text-white text-xs px-3 py-2 rounded-xl shadow-lg shadow-purple-500/30">
+          <p class="text-[10px] opacity-80">발송 4월 3주</p>
+          <p class="font-bold">428건</p>
+          <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 bg-[#7c3aed]"></div>
+        </div>
+
+        <!-- X축 라벨 -->
+        <div class="absolute -bottom-2 inset-x-0 flex justify-between text-[11px] text-gray-400 px-1">
+          <span>12월</span><span>1월</span><span>2월</span><span>3월</span><span>4월</span><span>5월</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4행: 베스트 콘텐츠 + 카테고리 도넛 + RSS 위젯 -->
+    <div class="grid grid-cols-12 gap-6">
+
+      <!-- 베스트 콘텐츠 (5열) -->
+      <div class="col-span-12 lg:col-span-5 bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        <div class="flex items-center justify-between mb-5">
+          <div>
+            <h2 class="font-bold text-gray-800">Top 뉴스레터</h2>
+            <p class="text-xs text-gray-400 mt-0.5">열람률 기준</p>
+          </div>
+          <a class="text-xs text-[#0d1b8e] font-semibold hover:underline">전체 →</a>
+        </div>
+
+        <div class="space-y-3">
+          <!-- item 1 -->
+          <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center text-white text-sm">⭐</div>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-semibold text-gray-800 truncate">Claude 4.7 출시, 코딩 성능 대폭 향상</p>
+              <p class="text-xs text-gray-400 mt-0.5">발송 128 · 열람 120</p>
+            </div>
+            <div class="flex items-center gap-1 text-green-600 text-xs font-bold">↑ 94%</div>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-400 to-indigo-500 flex items-center justify-center text-white text-sm">🚀</div>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-semibold text-gray-800 truncate">PCB 검사 AI 적용 사례 분석</p>
+              <p class="text-xs text-gray-400 mt-0.5">발송 128 · 열람 109</p>
+            </div>
+            <div class="flex items-center gap-1 text-green-600 text-xs font-bold">↑ 85%</div>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-white text-sm">🔌</div>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-semibold text-gray-800 truncate">반도체 공정 자동화 트렌드 보고서</p>
+              <p class="text-xs text-gray-400 mt-0.5">발송 128 · 열람 93</p>
+            </div>
+            <div class="flex items-center gap-1 text-green-600 text-xs font-bold">↑ 73%</div>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center text-white text-sm">📈</div>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-semibold text-gray-800 truncate">사내 시스템 점검 안내 (12월)</p>
+              <p class="text-xs text-gray-400 mt-0.5">발송 135 · 열람 81</p>
+            </div>
+            <div class="flex items-center gap-1 text-green-600 text-xs font-bold">↑ 60%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 카테고리 분포 (3열, 더 화려한 도넛) -->
+      <div class="col-span-12 lg:col-span-3 bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        <h2 class="font-bold text-gray-800">카테고리 분포</h2>
+        <p class="text-xs text-gray-400 mt-0.5 mb-4">발행 기준</p>
+
+        <div class="relative w-40 h-40 mx-auto mb-4">
+          <svg viewBox="0 0 36 36" class="w-40 h-40 -rotate-90">
+            <circle cx="18" cy="18" r="14" fill="none" stroke="#f3f4f6" stroke-width="4" />
+            <circle cx="18" cy="18" r="14" fill="none" stroke="url(#cat1)" stroke-width="4" stroke-dasharray="45 100" stroke-dashoffset="0" stroke-linecap="round" />
+            <circle cx="18" cy="18" r="14" fill="none" stroke="url(#cat2)" stroke-width="4" stroke-dasharray="28 100" stroke-dashoffset="-45" stroke-linecap="round" />
+            <circle cx="18" cy="18" r="14" fill="none" stroke="url(#cat3)" stroke-width="4" stroke-dasharray="20 100" stroke-dashoffset="-73" stroke-linecap="round" />
+            <defs>
+              <linearGradient id="cat1"><stop offset="0%" stop-color="#0d1b8e"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient>
+              <linearGradient id="cat2"><stop offset="0%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#fb7185"/></linearGradient>
+              <linearGradient id="cat3"><stop offset="0%" stop-color="#fb7185"/><stop offset="100%" stop-color="#fb923c"/></linearGradient>
+            </defs>
+          </svg>
+          <div class="absolute inset-0 flex flex-col items-center justify-center">
+            <p class="text-2xl font-bold text-gray-800">42</p>
+            <p class="text-[10px] text-gray-400">전체 발행</p>
+          </div>
+        </div>
+
+        <div class="space-y-2 text-xs">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-gradient-to-r from-[#0d1b8e] to-[#7c3aed]"></span><span class="text-gray-600">IT 트렌드</span></div>
+            <span class="font-semibold text-gray-800">52%</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-gradient-to-r from-[#a78bfa] to-[#fb7185]"></span><span class="text-gray-600">제조 기술</span></div>
+            <span class="font-semibold text-gray-800">28%</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-gradient-to-r from-[#fb7185] to-[#fb923c]"></span><span class="text-gray-600">사내 소식</span></div>
+            <span class="font-semibold text-gray-800">20%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RSS 위젯 (4열) -->
+      <div class="col-span-12 lg:col-span-4 bg-gradient-to-br from-indigo-50 via-white to-purple-50 rounded-2xl p-6 shadow-sm border border-gray-100">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="font-bold text-gray-800">RSS 수신함</h2>
+            <p class="text-xs text-gray-400 mt-0.5">신규 12건</p>
+          </div>
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center text-white shadow-lg shadow-orange-500/30">📡</div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="bg-white p-3 rounded-xl border border-gray-100">
+            <p class="text-xs font-semibold text-gray-800 line-clamp-2 leading-snug">OpenAI, 새로운 추론 모델 공개 — 소량 데이터로 학습 가능</p>
+            <p class="text-[10px] text-gray-400 mt-1.5 flex items-center gap-1"><span class="w-1 h-1 rounded-full bg-orange-400"></span>TechCrunch · 1시간 전</p>
+          </div>
+          <div class="bg-white p-3 rounded-xl border border-gray-100">
+            <p class="text-xs font-semibold text-gray-800 line-clamp-2 leading-snug">Meta, AI 인프라 200억 달러 투자 발표</p>
+            <p class="text-[10px] text-gray-400 mt-1.5 flex items-center gap-1"><span class="w-1 h-1 rounded-full bg-purple-400"></span>Reuters · 3시간 전</p>
+          </div>
+          <div class="bg-white p-3 rounded-xl border border-gray-100">
+            <p class="text-xs font-semibold text-gray-800 line-clamp-2 leading-snug">삼성, HBM4 양산 일정 발표</p>
+            <p class="text-[10px] text-gray-400 mt-1.5 flex items-center gap-1"><span class="w-1 h-1 rounded-full bg-cyan-400"></span>전자신문 · 5시간 전</p>
+          </div>
+        </div>
+
+        <button class="w-full mt-4 bg-gradient-to-r from-[#0d1b8e] to-[#7c3aed] text-white py-2.5 rounded-xl text-xs font-semibold shadow-md shadow-purple-500/20">전체 수신함 보기</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>

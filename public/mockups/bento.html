@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>시안 T1 · 베이토 그리드</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: "Pretendard Variable", Pretendard, -apple-system, sans-serif; }
+  .tile { transition: transform .25s ease, box-shadow .25s ease; }
+  .tile:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -12px rgba(13,27,142,.18); }
+  .g-ai   { background: linear-gradient(135deg,#0d1b8e,#3b4ff0); }
+  .g-cyan { background: linear-gradient(135deg,#00a3ff,#0d1b8e); }
+  .g-warm { background: linear-gradient(135deg,#1e293b,#475569); }
+  .g-soft { background: linear-gradient(135deg,#eef1ff,#dbe2ff); }
+</style>
+</head>
+<body class="bg-[#f5f6fa] text-gray-900 min-h-screen">
+
+<!-- 상단 바 -->
+<header class="max-w-6xl mx-auto px-5 pt-7 pb-4 flex items-center justify-between">
+  <div class="flex items-center gap-2">
+    <span class="font-black text-xl tracking-tight">대덕<span class="text-[#0d1b8e]">.IT</span></span>
+    <span class="ml-2 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400">Weekly Tech</span>
+  </div>
+  <nav class="hidden sm:flex items-center gap-6 text-[14px] font-medium text-gray-500">
+    <span class="text-gray-900">홈</span><span>AI</span><span>인프라</span><span>사내소식</span>
+    <span class="px-3.5 py-1.5 rounded-full bg-[#0d1b8e] text-white text-[13px] font-bold">구독</span>
+  </nav>
+</header>
+
+<main class="max-w-6xl mx-auto px-5 pb-16">
+  <!-- 타이틀 -->
+  <div class="flex items-end justify-between mb-5 mt-3">
+    <h1 class="text-[26px] sm:text-[30px] font-black tracking-tight leading-tight">이번 주 IT, 한눈에</h1>
+    <span class="text-[13px] text-gray-400 font-medium tabular-nums">2026.06 · 1주차</span>
+  </div>
+
+  <!-- 베이토 그리드 -->
+  <div class="grid grid-cols-1 md:grid-cols-4 auto-rows-[150px] gap-4">
+
+    <!-- HERO (2x2) -->
+    <a class="tile relative md:col-span-2 md:row-span-2 rounded-3xl overflow-hidden g-ai text-white p-7 flex flex-col justify-end cursor-pointer">
+      <span class="absolute top-6 left-6 text-[11px] font-bold uppercase tracking-widest bg-white/15 backdrop-blur px-3 py-1 rounded-full">오늘의 토픽</span>
+      <span class="text-[12px] font-bold text-cyan-200 mb-2">AI · COPILOT</span>
+      <h2 class="text-[24px] sm:text-[28px] font-black leading-snug mb-2">MS, 코파일럿에 자율 AI 에이전트 통합… 업무 방식 바뀐다</h2>
+      <p class="text-white/70 text-[14px] line-clamp-2">노트북·팀즈·아웃룩을 가로질러 작업을 대신 수행하는 에이전트가 공개됐습니다.</p>
+      <span class="mt-3 text-[13px] text-white/60">대덕 IT인프라그룹 · 8분 읽기</span>
+    </a>
+
+    <!-- 구독 CTA (2x1) -->
+    <a class="tile md:col-span-2 rounded-3xl g-cyan text-white p-6 flex flex-col justify-center cursor-pointer">
+      <span class="text-[12px] font-bold uppercase tracking-widest text-white/70 mb-1">NEWSLETTER</span>
+      <h3 class="text-[19px] font-black leading-snug">매주 월요일, 핵심 IT 소식을 메일로</h3>
+      <span class="mt-3 inline-flex items-center gap-1.5 text-[14px] font-bold">지금 구독하기 →</span>
+    </a>
+
+    <!-- 트렌딩 (2x1) -->
+    <div class="tile md:col-span-2 rounded-3xl bg-white border border-gray-100 p-6 cursor-pointer">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#00a3ff]"></span>
+        <h3 class="text-[15px] font-black">지금 뜨는 글</h3>
+      </div>
+      <ol class="space-y-2.5">
+        <li class="flex gap-3 items-start"><span class="text-[#0d1b8e] font-black tabular-nums text-[15px]">01</span><span class="text-[14px] font-semibold leading-snug">엔비디아, AI 노트북 칩 시장 진출 선언</span></li>
+        <li class="flex gap-3 items-start"><span class="text-[#0d1b8e] font-black tabular-nums text-[15px]">02</span><span class="text-[14px] font-semibold leading-snug">"AI로 감원했지만 ROI는?"… 기업들의 딜레마</span></li>
+        <li class="flex gap-3 items-start"><span class="text-[#0d1b8e] font-black tabular-nums text-[15px]">03</span><span class="text-[14px] font-semibold leading-snug">카이스트, 초저전력 온디바이스 AI 칩 공개</span></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 하위 베이토 -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+    <!-- AI -->
+    <a class="tile rounded-3xl bg-white border border-gray-100 overflow-hidden cursor-pointer">
+      <div class="h-28 g-soft"></div>
+      <div class="p-5">
+        <span class="text-[12px] font-bold text-[#0d1b8e]">AI 하이라이트</span>
+        <h3 class="text-[16px] font-bold leading-snug mt-1.5">오픈AI, 사내문서 검색 'GPT 워크스페이스' 출시</h3>
+        <span class="text-[12px] text-gray-400 mt-2 block">06.02 · 조회 2,145</span>
+      </div>
+    </a>
+    <!-- 사내소식 -->
+    <a class="tile rounded-3xl bg-white border border-gray-100 overflow-hidden cursor-pointer">
+      <div class="h-28 g-warm"></div>
+      <div class="p-5">
+        <span class="text-[12px] font-bold text-[#0d1b8e]">사내 소식</span>
+        <h3 class="text-[16px] font-bold leading-snug mt-1.5">대덕전자 IT인프라, 6월 보안 점검 안내</h3>
+        <span class="text-[12px] text-gray-400 mt-2 block">06.01 · 공지</span>
+      </div>
+    </a>
+    <!-- 주제 -->
+    <a class="tile rounded-3xl bg-[#0d1b8e] text-white p-5 flex flex-col justify-between cursor-pointer">
+      <div>
+        <span class="text-[12px] font-bold text-cyan-200">이번 주 주제</span>
+        <h3 class="text-[18px] font-black leading-snug mt-1.5">AI 에이전트, 어디까지 왔나</h3>
+      </div>
+      <span class="text-[13px] text-white/70 mt-4">연재 4편 모아보기 →</span>
+    </a>
+  </div>
+</main>
+
+<footer class="text-center text-[12px] text-gray-400 pb-10">시안 T1 · 베이토 그리드 — 대덕.IT</footer>
+</body>
+</html>

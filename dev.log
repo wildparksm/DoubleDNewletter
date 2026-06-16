@@ -1,0 +1,127 @@
+
+> daeduck-newsletter@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.3 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.148.97:3000
+- Environments: .env.local
+✓ Ready in 2.3s
+
+ GET / 200 in 1094ms (next.js: 800ms, application-code: 295ms)
+ GET / 200 in 87ms (next.js: 14ms, application-code: 73ms)
+ GET /newsletter/5 200 in 1839ms (next.js: 1644ms, application-code: 195ms)
+ GET /newsletter/4 200 in 65ms (next.js: 31ms, application-code: 34ms)
+ GET /admin/login 200 in 306ms (next.js: 124ms, proxy.ts: 106ms, application-code: 76ms)
+ POST /api/auth/login 401 in 322ms (next.js: 215ms, application-code: 107ms)
+ POST /api/auth/login 200 in 94ms (next.js: 4ms, application-code: 89ms)
+ GET /admin 200 in 206ms (next.js: 123ms, proxy.ts: 10ms, application-code: 72ms)
+ GET /admin 200 in 64ms (next.js: 8ms, proxy.ts: 11ms, application-code: 45ms)
+ GET /api/stats 200 in 82ms (next.js: 69ms, application-code: 13ms)
+ GET /api/stats 200 in 23ms (next.js: 3ms, application-code: 20ms)
+ GET /admin/newsletters 200 in 262ms (next.js: 160ms, proxy.ts: 6ms, application-code: 96ms)
+ GET /admin/subscribers 200 in 179ms (next.js: 120ms, proxy.ts: 7ms, application-code: 52ms)
+ GET /admin/users 200 in 168ms (next.js: 87ms, proxy.ts: 6ms, application-code: 76ms)
+ GET /admin/subscribers 200 in 44ms (next.js: 6ms, proxy.ts: 7ms, application-code: 30ms)
+ GET /admin/newsletters 200 in 46ms (next.js: 7ms, proxy.ts: 7ms, application-code: 32ms)
+ GET /admin/newsletters/4/edit 200 in 1003ms (next.js: 931ms, proxy.ts: 7ms, application-code: 66ms)
+[browser] [tiptap warn]: Duplicate extension names found: ['link', 'underline']. This can lead to issues.
+ GET /admin/newsletters/new 200 in 177ms (next.js: 121ms, proxy.ts: 7ms, application-code: 49ms)
+[browser] [tiptap warn]: Duplicate extension names found: ['link', 'underline']. This can lead to issues.
+ GET /admin/newsletters 200 in 44ms (next.js: 7ms, proxy.ts: 6ms, application-code: 31ms)
+✓ Compiled in 592ms
+✓ Compiled in 573ms
+ GET / 200 in 438ms (next.js: 202ms, application-code: 237ms)
+ GET / 200 in 46ms (next.js: 6ms, application-code: 40ms)
+ GET / 200 in 16ms (next.js: 5ms, application-code: 10ms)
+ GET / 200 in 29ms (next.js: 3ms, application-code: 26ms)
+ GET /subscribe 200 in 121ms (next.js: 101ms, application-code: 20ms)
+✓ Compiled in 177ms
+✓ Compiled in 166ms
+ GET / 200 in 320ms (next.js: 135ms, application-code: 185ms)
+ GET / 200 in 81ms (next.js: 7ms, application-code: 75ms)
+ GET /newsletter/4 200 in 214ms (next.js: 149ms, application-code: 65ms)
+ GET /admin/login 200 in 197ms (next.js: 71ms, proxy.ts: 5ms, application-code: 121ms)
+ POST /api/auth/login 200 in 226ms (next.js: 113ms, application-code: 112ms)
+ GET /admin 200 in 300ms (next.js: 120ms, proxy.ts: 64ms, application-code: 116ms)
+ GET /admin 200 in 60ms (next.js: 11ms, proxy.ts: 12ms, application-code: 37ms)
+ GET /api/stats 200 in 120ms (next.js: 102ms, application-code: 18ms)
+ GET /api/stats 200 in 37ms (next.js: 4ms, application-code: 33ms)
+ GET /admin/newsletters/new 200 in 117ms (next.js: 75ms, proxy.ts: 7ms, application-code: 34ms)
+ GET /api/stats 200 in 13ms (next.js: 4ms, application-code: 9ms)
+ GET /api/stats 200 in 35ms (next.js: 16ms, application-code: 19ms)
+ GET /admin/newsletters/new 200 in 72ms (next.js: 16ms, proxy.ts: 9ms, application-code: 48ms)
+[browser] [tiptap warn]: Duplicate extension names found: ['link', 'underline']. This can lead to issues.
+✓ Compiled in 64ms
+ GET / 200 in 404ms (next.js: 210ms, application-code: 194ms)
+ GET / 200 in 52ms (next.js: 5ms, application-code: 47ms)
+ GET /admin 200 in 395ms (next.js: 116ms, proxy.ts: 20ms, application-code: 259ms)
+ GET /api/stats 200 in 117ms (next.js: 93ms, application-code: 24ms)
+ GET /admin/newsletters/new 200 in 274ms (next.js: 203ms, proxy.ts: 7ms, application-code: 63ms)
+[browser] [tiptap warn]: Duplicate extension names found: ['link', 'underline']. This can lead to issues.
+✓ Compiled in 369ms
+[browser] ./components/NewsletterBuilder.tsx:466:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  464 |     </div>
+  465 |   );
+> 466 | }
+      | ^
+  467 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Client Component Browser:
+    ./components/NewsletterBuilder.tsx [Client Component Browser]
+    ./app/admin/newsletters/NewsletterEditor.tsx [Client Component Browser]
+    ./app/admin/newsletters/NewsletterEditor.tsx [Server Component]
+    ./app/admin/newsletters/[id]/edit/page.tsx [Server Component] 
+[browser] ./components/NewsletterBuilder.tsx:466:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  464 |     </div>
+  465 |   );
+> 466 | }
+      | ^
+  467 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Client Component Browser:
+    ./components/NewsletterBuilder.tsx [Client Component Browser]
+    ./app/admin/newsletters/NewsletterEditor.tsx [Client Component Browser]
+    ./app/admin/newsletters/NewsletterEditor.tsx [Server Component]
+    ./app/admin/newsletters/[id]/edit/page.tsx [Server Component] 
+ GET /admin/newsletters/new 200 in 124ms (next.js: 12ms, proxy.ts: 12ms, application-code: 100ms)
+ GET /admin/newsletters/new 200 in 123ms (next.js: 47ms, proxy.ts: 11ms, application-code: 65ms)
+[browser] tippy.js
+
+destroy() was called on an already-destroyed instance. This is a no-op but indicates a potential memory leak.
+
+👷‍ This is a development-only message. It will be removed in production. (components/SlashCommand.tsx:210:27)
+[browser] Uncaught ReferenceError: BLOCKS is not defined
+    at NewsletterBuilder (components/NewsletterBuilder.tsx:333:26)
+    at NewsletterEditor (app/admin/newsletters/NewsletterEditor.tsx:292:13)
+    at TemplateSelector (app/admin/newsletters/new/TemplateSelector.tsx:204:7)
+    at NewNewsletterPage (app\admin\newsletters\new\page.tsx:9:10)
+  331 |         <div className="w-44 flex-shrink-0">
+  332 |           <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3...
+> 333 |           <div className="space-y-1.5">
+      |                          ^
+  334 |             {BLOCKS.map((block) => (
+  335 |               <button
+  336 |                 key={block.label}
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+✓ Compiled in 254ms
+ GET /admin/newsletters/new 200 in 283ms (next.js: 7ms, proxy.ts: 8ms, application-code: 268ms)
+[browser] [tiptap warn]: Duplicate extension names found: ['link', 'underline']. This can lead to issues.
+✓ Compiled in 445ms
+ GET /admin/newsletters/new 200 in 478ms (next.js: 184ms, proxy.ts: 117ms, application-code: 176ms)
+ GET /admin/newsletters/new 200 in 354ms (next.js: 49ms, proxy.ts: 242ms, application-code: 64ms)
+ GET /admin/newsletters/new 200 in 75ms (next.js: 4ms, proxy.ts: 4ms, application-code: 66ms)
+[browser] [tiptap warn]: Duplicate extension names found: ['link', 'underline']. This can lead to issues.
+ GET /admin/newsletters/new 200 in 67ms (next.js: 7ms, proxy.ts: 7ms, application-code: 54ms)
+[browser] [tiptap warn]: Duplicate extension names found: ['link', 'underline']. This can lead to issues.
+ GET /admin/newsletters 200 in 174ms (next.js: 75ms, proxy.ts: 8ms, application-code: 92ms)
+ GET /admin/newsletters/4/edit 200 in 326ms (next.js: 241ms, proxy.ts: 7ms, application-code: 78ms)
+[browser] [tiptap warn]: Duplicate extension names found: ['link', 'underline']. This can lead to issues.

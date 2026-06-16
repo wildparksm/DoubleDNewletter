@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>시안 T3 · 네오 브루탈리즘</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: "Pretendard Variable", Pretendard, -apple-system, sans-serif; }
+  .nb { border:2.5px solid #0a0a0a; box-shadow:6px 6px 0 #0a0a0a; transition:transform .12s ease, box-shadow .12s ease; }
+  .nb:hover { transform:translate(-2px,-2px); box-shadow:9px 9px 0 #0a0a0a; }
+  .nb-press:hover { transform:translate(3px,3px); box-shadow:2px 2px 0 #0a0a0a; }
+</style>
+</head>
+<body class="bg-[#fdf3e3] text-[#0a0a0a] min-h-screen">
+
+<header class="max-w-6xl mx-auto px-5 pt-7 pb-5 flex items-center justify-between">
+  <span class="font-black text-2xl tracking-tighter">대덕<span class="text-[#0d1b8e]">.IT</span></span>
+  <nav class="hidden sm:flex items-center gap-3 text-[14px] font-bold">
+    <span>AI</span><span>인프라</span><span>사내소식</span>
+    <span class="nb nb-press bg-[#0d1b8e] text-white px-4 py-1.5 cursor-pointer">구독하기</span>
+  </nav>
+</header>
+
+<main class="max-w-6xl mx-auto px-5 pb-16">
+  <!-- 마스트헤드 -->
+  <div class="flex items-center gap-3 mb-5">
+    <span class="nb bg-[#ffe14d] px-3 py-1 text-[13px] font-black">WEEKLY · No.12</span>
+    <span class="text-[14px] font-bold">2026.06 · 1주차</span>
+  </div>
+
+  <!-- 히어로 -->
+  <a class="nb block bg-white p-7 sm:p-9 mb-5 cursor-pointer">
+    <span class="nb bg-[#00a3ff] text-white inline-block px-3 py-1 text-[12px] font-black mb-4">AI · COPILOT</span>
+    <h1 class="text-[30px] sm:text-[44px] font-black leading-[1.05] tracking-tight mb-3">
+      MS, 코파일럿에<br>자율 AI 에이전트 통합!
+    </h1>
+    <p class="text-[16px] font-medium text-gray-700 max-w-2xl">노트북·팀즈·아웃룩을 가로질러 작업을 대신 수행하는 에이전트가 공개됐습니다. 업무 방식이 바뀝니다.</p>
+    <span class="inline-block mt-5 text-[15px] font-black underline decoration-2 underline-offset-4">전문 읽기 →</span>
+  </a>
+
+  <!-- 3 컬럼 카드 -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
+    <a class="nb bg-white p-5 cursor-pointer">
+      <span class="nb bg-[#0d1b8e] text-white inline-block px-2.5 py-0.5 text-[11px] font-black mb-3">AI</span>
+      <h3 class="text-[17px] font-black leading-snug">엔비디아, AI 노트북 칩 시장 진출 선언</h3>
+      <span class="text-[12px] font-bold text-gray-500 mt-3 block">06.02 · 조회 2,145</span>
+    </a>
+    <a class="nb bg-white p-5 cursor-pointer">
+      <span class="nb bg-[#ff5a5a] text-white inline-block px-2.5 py-0.5 text-[11px] font-black mb-3">인프라</span>
+      <h3 class="text-[17px] font-black leading-snug">"AI로 감원했지만 ROI는?" 기업들의 딜레마</h3>
+      <span class="text-[12px] font-bold text-gray-500 mt-3 block">06.01 · 조회 1,802</span>
+    </a>
+    <a class="nb bg-white p-5 cursor-pointer">
+      <span class="nb bg-[#22c55e] text-white inline-block px-2.5 py-0.5 text-[11px] font-black mb-3">사내</span>
+      <h3 class="text-[17px] font-black leading-snug">대덕전자 IT인프라, 6월 보안 점검 안내</h3>
+      <span class="text-[12px] font-bold text-gray-500 mt-3 block">06.01 · 공지</span>
+    </a>
+  </div>
+
+  <!-- 트렌딩 -->
+  <div class="nb bg-[#0d1b8e] text-white p-6">
+    <h3 class="text-[18px] font-black mb-4 flex items-center gap-2"><span class="nb bg-[#ffe14d] text-[#0a0a0a] px-2 py-0.5 text-[13px]">🔥 지금 뜨는 글</span></h3>
+    <ol class="grid sm:grid-cols-3 gap-4">
+      <li class="flex gap-3 items-start"><span class="font-black tabular-nums text-[22px] text-[#ffe14d]">01</span><span class="text-[14px] font-bold leading-snug">카이스트, 초저전력 온디바이스 AI 칩 공개</span></li>
+      <li class="flex gap-3 items-start"><span class="font-black tabular-nums text-[22px] text-[#ffe14d]">02</span><span class="text-[14px] font-bold leading-snug">오픈AI, 사내문서 검색 GPT 워크스페이스 출시</span></li>
+      <li class="flex gap-3 items-start"><span class="font-black tabular-nums text-[22px] text-[#ffe14d]">03</span><span class="text-[14px] font-bold leading-snug">구글, 제미나이 코드 어시스트 무료 확대</span></li>
+    </ol>
+  </div>
+</main>
+
+<footer class="text-center text-[13px] font-bold text-gray-500 pb-10">시안 T3 · 네오 브루탈리즘 — 대덕.IT</footer>
+</body>
+</html>
