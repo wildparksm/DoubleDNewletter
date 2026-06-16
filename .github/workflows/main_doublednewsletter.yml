@@ -26,6 +26,7 @@ jobs:
       - name: npm install, build, and test
         env:
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          NEXT_PUBLIC_BASE_URL: ${{ vars.NEXT_PUBLIC_BASE_URL }}
         run: |
           npm install
           npm run build --if-present
