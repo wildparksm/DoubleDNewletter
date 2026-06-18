@@ -3,16 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\"",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "lint": "eslint",
     "setup": "node scripts/create-admin.mjs"
   },
   "dependencies": {
+    "next": "16.2.3",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
     "@anthropic-ai/sdk": "^0.95.2",
     "@google/generative-ai": "^0.24.1",
+    "groq-sdk": "^1.2.0",
     "@tavily/core": "^0.7.3",
     "@tiptap/extension-character-count": "^3.22.4",
     "@tiptap/extension-code-block-lowlight": "^3.22.4",
@@ -34,33 +37,29 @@
     "@tiptap/react": "^3.22.3",
     "@tiptap/starter-kit": "^3.22.3",
     "@tiptap/suggestion": "^3.22.3",
-    "@types/sanitize-html": "^2.16.1",
-    "bcryptjs": "^3.0.3",
     "better-sqlite3": "^12.9.0",
-    "groq-sdk": "^1.2.0",
+    "bcryptjs": "^3.0.3",
     "jose": "^6.2.2",
     "jsonwebtoken": "^9.0.3",
-    "lowlight": "^3.3.0",
-    "next": "16.2.3",
     "nodemailer": "^8.0.5",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
     "rss-parser": "^3.13.0",
     "sanitize-html": "^2.17.2",
-    "tippy.js": "^6.3.7"
-  },
-  "devDependencies": {
+    "lowlight": "^3.3.0",
+    "tippy.js": "^6.3.7",
     "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
     "@types/bcryptjs": "^2.4.6",
     "@types/better-sqlite3": "^7.6.13",
     "@types/jsonwebtoken": "^9.0.10",
-    "@types/node": "^20",
     "@types/nodemailer": "^8.0.0",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/sanitize-html": "^2.16.1"
+  },
+  "devDependencies": {
     "eslint": "^9",
-    "eslint-config-next": "16.2.3",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "eslint-config-next": "16.2.3"
   }
 }
